@@ -122,4 +122,3 @@ Sort.prototype = {
         return this.quickSort(left, this.orderby).concat(middle, this.quickSort(right, this.orderby));
     }
 };
-
