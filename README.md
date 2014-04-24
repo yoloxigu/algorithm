@@ -1,5 +1,6 @@
-/* js/class/Sort.class.js */
-
+/*
+ * js/class/Sort.class.js
+ */
 function Sort() {}
 
 Sort.prototype.quickSort = function(arr) {
@@ -39,3 +40,45 @@ Sort.prototype.quickSort = function(arr) {
         return this.quickSort(left).concat(middle, this.quickSort(right));
     }
 };
+
+/*
+ * class/Sort.class.php
+ */
+class Sort {
+    public function quickSort($arr, $orderby = 'aesc') {
+        if(sizeof($arr) > 1) {
+            $k = $arr[0];
+            $x = array();
+            $y = array();
+            $_size = count($arr);
+
+            switch($orderby) {
+                case Null:
+                    $orderby = 'aesc';
+                    break;
+                case 'aesc':
+                    break;
+                case 'desc':
+                    break;
+                default:
+                    $orderby = 'aesc';
+                    break;
+            }
+
+            for($i = 1; $i < $_size; $i++) {
+                if($orderby == 'aesc' ? $arr[$i] <= $k : $arr[$i] >= $k) {
+                    $x[] = $arr[$i];
+                } else {
+                    $y[] = $arr[$i];
+                }
+            }
+
+            $x = $this->quickSort($x, $orderby);
+            $y = $this->quickSort($y, $orderby);
+
+            return array_merge($x, array($k), $y);
+        } else {
+            return $arr;
+        }
+    }
+}
