@@ -32,6 +32,6 @@ Sort.prototype.quickSort = function(arr) {
             }
         }
 
-        return this.quickSort(left).concat(middle, this.quickSort(right));
+        return this.quickSort(left, orderby).concat(middle, this.quickSort(right, orderby));
     }
 };
