@@ -1,6 +1,5 @@
-/*
- * js/class/Sort.class.js
- */
+/* js/class/Sort.class.js */
+
 function Sort() {}
 
 Sort.prototype.quickSort = function(arr) {
